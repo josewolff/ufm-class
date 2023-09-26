@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Test Automation" >
+    <parameter name="apiHost" value="http://localhost:5001"/>
+    <parameter name="seleniumHost" value="http://localhost:8081"/>
+    <parameter name="Parameter2" value="AUtomation"/>
+    <test name="TestCases Examples">
+        <classes>
+            <class name="unitTest.Calculadora"/>
+            <class name="dataProvidersExamples.DataProvidersTest"/>
+        </classes>
+    </test>
+</suite>
