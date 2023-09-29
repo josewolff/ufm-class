@@ -1,5 +1,6 @@
 package dataProviders;
 
+import apiTestingAuxClasses.CreateBodyContent;
 import org.testng.annotations.DataProvider;
 
 import java.util.ArrayList;
@@ -23,6 +24,15 @@ public class DataProviders {
         List<Object[]> data =  new ArrayList<Object[]>();
         for(int x = 0; x < 250; x++){
             data.add(new Object[]{x, x*2});
+        }
+        return data.iterator();
+    }
+
+    @DataProvider(name ="postContent")
+    public Iterator<Object[]> postContent(){
+        List<Object[]> data =  new ArrayList<Object[]>();
+        for(int x = 0; x < 250; x++){
+            data.add(new Object[]{CreateBodyContent.getBodyContentUsers()});
         }
         return data.iterator();
     }

@@ -1,6 +1,7 @@
 package integrationTests;
 
 import apiTestingAuxClasses.RequestMaker;
+import dataProviders.DataProviders;
 import io.restassured.response.Response;
 import org.json.JSONArray;
 import org.testng.Assert;
@@ -19,6 +20,17 @@ public class APITest {
         if(jsonArray.length() == 0){
             Assert.fail("Fail test - Get Users is empty.");
         }
+    }
+
+    @Test(groups = {"all","get"}, dataProvider = "postContent",
+            dataProviderClass = DataProviders.class)
+    public void createUsers(String json){
+        System.out.println(json);
+        String createUsersUrl = "http://localhost:5001/users/add";
+        Response response = RequestMaker.makePostRequest(createUsersUrl, json);
+        String responseString = response.asString();
+        System.out.println(responseString);
+        System.out.println("\n\n");
     }
 
 }
